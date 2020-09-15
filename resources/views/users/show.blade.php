@@ -29,7 +29,7 @@
 
                     <ul>
                         @foreach($entries as $entry)
-                            <li><a href="{{route('show_entry', ['entry' => $entry->id])}}">{{$entry->title}}</a></li>
+                            <li><a href="{{ $entry->getUrl() }}">{{$entry->title}}</a></li>
                         @endforeach
                     </ul>
                 </div>

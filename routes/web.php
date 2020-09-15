@@ -26,8 +26,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/entries/{entryBySlug}', 'GuestController@show')->name('show_entry');
+
 Route::get('/entries/create', 'EntryController@create')->name('entry_create');
-Route::get('/entries/{entry}', 'GuestController@show')->name('show_entry');
 Route::get('/entries/{entry}/edit', 'EntryController@edit')->name('edit_entry');
 
 Route::post('/entries', 'EntryController@store')->name('entry_store');
