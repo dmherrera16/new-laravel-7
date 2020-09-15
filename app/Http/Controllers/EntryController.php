@@ -30,10 +30,15 @@ class EntryController extends Controller
     }
 
     public function edit(Entry $entry){
+
+    	$this->authorize('update', $entry);
+
     	return view('entries.edit', compact('entry'));
     }
 
     public function update(EntryFormRequest $request, Entry $entry){
+
+    	$this->authorize('update', $entry);
     	
     	$entry->title = $request->get('title');
     	$entry->content = $request->get('content');

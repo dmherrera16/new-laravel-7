@@ -25,6 +25,6 @@ class Entry extends Model
     // }
 
     public function getUrl(){
-    	return route('show_entry', ['entry' => $this->slug.'-'.$this->id]);
+    	return route('show_entry', ['entryBySlug' => $this->slug.'-'.$this->id]);
     }
 }

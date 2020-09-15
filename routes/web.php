@@ -28,8 +28,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/entries/{entryBySlug}', 'GuestController@show')->name('show_entry');
 
+//->middleware('can:update:entry'); Otra forma de validar los accesos
 Route::get('/entries/create', 'EntryController@create')->name('entry_create');
-Route::get('/entries/{entry}/edit', 'EntryController@edit')->name('edit_entry');
+Route::get('/entries/{entry}/edit', 'EntryController@edit')->name('edit_entry')
 
 Route::post('/entries', 'EntryController@store')->name('entry_store');
 Route::put('/entries/{entry}', 'EntryController@update')->name('update_entry');
