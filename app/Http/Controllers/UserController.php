@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Entry;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -43,9 +45,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        $entries = Entry::where('user_id', $user->id)->get();
+        return view('users.show', compact('user', 'entries'));
     }
 
     /**

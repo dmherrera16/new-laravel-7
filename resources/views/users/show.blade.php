@@ -3,9 +3,20 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">Tweets</div>
+
+                <div class="card-body">
+                    Twitter api
+                </div>
+            </div>
+        </div>
+
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ $user->name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +25,8 @@
                         </div>
                     @endif
 
-                    <p>My entries</p>
+                    <p>Published entries:</p>
+
                     <ul>
                         @foreach($entries as $entry)
                             <li><a href="{{route('show_entry', ['entry' => $entry->id])}}">{{$entry->title}}</a></li>
